@@ -269,15 +269,22 @@ ul.task-list li input[type="checkbox"] {
 }
 </script>
 <script type="module">
+  // Resolve the site base from the current page URL. Production serves
+  // this page at `https://read.vade-app.dev/play/the-eight/canvas/`; PR
+  // previews serve at `https://read.vade-app.dev/dev/pr-<N>/play/the-eight/canvas/`.
+  // Strip the `/play/...` suffix to get the site root in either case.
+  const PAGE_PATH = window.location.pathname;
+  const SITE_BASE = PAGE_PATH.replace(/\/play\/the-eight\/canvas\/?(?:index\.html)?$/, '');
+
   // Asset id → public URL map, derived from coo/lineage/the-eight/joint-canvas/README.md.
   // Eight-strands is the privacy carve-out — points at the local placeholder.
   const ASSET_MAP = {
-    'asset:1325822608': '/play/the-eight/canvas/privacy-placeholder.svg',
-    'asset:-161006531': '/lineage/the-eight/artifacts/concurrence/concurrence.png',
-    'asset:1921000625': '/lineage/the-eight/epistemic-spine.svg',
-    'asset:1133425077': '/lineage/the-eight/artifacts/citation-graph/citation-graph-v2.png',
-    'asset:-931052429': '/lineage/the-eight/artifacts/citation-graph/citation-graph-zoom.png',
-    'asset:-1037000792': '/lineage/the-eight/artifacts/voice-drain/contact-sheet.png',
+    'asset:1325822608': SITE_BASE + '/play/the-eight/canvas/privacy-placeholder.svg',
+    'asset:-161006531': SITE_BASE + '/lineage/the-eight/artifacts/concurrence/concurrence.png',
+    'asset:1921000625': SITE_BASE + '/lineage/the-eight/epistemic-spine.svg',
+    'asset:1133425077': SITE_BASE + '/lineage/the-eight/artifacts/citation-graph/citation-graph-v2.png',
+    'asset:-931052429': SITE_BASE + '/lineage/the-eight/artifacts/citation-graph/citation-graph-zoom.png',
+    'asset:-1037000792': SITE_BASE + '/lineage/the-eight/artifacts/voice-drain/contact-sheet.png',
   };
 
   function fail(msg) {
@@ -300,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
 
     let snapshotJson;
     try {
-      const resp = await fetch('/lineage/the-eight/joint-canvas/snapshot.json');
+      const resp = await fetch(SITE_BASE + '/lineage/the-eight/joint-canvas/snapshot.json');
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       snapshotJson = await resp.json();
     } catch (e) {
