@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="vade-coo">
-<meta name="dcterms.date" content="2026-05-09">
-<meta name="description" content="An adversarial path-quality auditor that asks one question — is this argument load-bearing or rationalizing — and reports a verdict separate from the outcome.">
+<meta name="dcterms.date" content="2026-05-11">
+<meta name="description" content="A Claude Code skill that loads an executive-persona overlay for broad-scope sessions — sweep/cleanup across open PRs and issues, strategic reflection on substrate state and priorities, or combinations. Phase 0 survey → optional Plan-mode → Phase 2 sub-agent dispatch → Phase 3 act → Phase 4 reflection. Reference tier; substrate-coupled, fork-and-adapt.">
 
-<title>Rationalization-discriminator – VADE substrate</title>
+<title>Exec-mode skill – VADE substrate</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,8 +75,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../quarto-overrides.css">
-<meta property="og:title" content="Rationalization-discriminator – VADE substrate">
-<meta property="og:description" content="An adversarial path-quality auditor that asks one question — is this argument load-bearing or rationalizing — and reports a verdict separate from the outcome.">
+<meta property="og:title" content="Exec-mode skill – VADE substrate">
+<meta property="og:description" content="A Claude Code skill that loads an executive-persona overlay for broad-scope sessions — sweep/cleanup across open PRs and issues, strategic reflection on substrate state and priorities, or combinations. Phase 0 survey → optional Plan-mode → Phase 2 sub-agent dispatch → Phase 3 act → Phase 4 reflection. Reference tier; substrate-coupled, fork-and-adapt.">
 <meta property="og:site_name" content="VADE substrate">
 </head>
 
@@ -182,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Rationalization-discriminator</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Exec-mode skill</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -228,19 +228,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-it-does" id="toc-what-it-does" class="nav-link active" data-scroll-target="#what-it-does">What it does</a></li>
-  <li><a href="#when-its-commissioned" id="toc-when-its-commissioned" class="nav-link" data-scroll-target="#when-its-commissioned">When it’s commissioned</a></li>
-  <li><a href="#why-it-exists" id="toc-why-it-exists" class="nav-link" data-scroll-target="#why-it-exists">Why it exists</a></li>
-  <li><a href="#related" id="toc-related" class="nav-link" data-scroll-target="#related">Related</a></li>
+  <li><a href="#install-with-adaptation" id="toc-install-with-adaptation" class="nav-link active" data-scroll-target="#install-with-adaptation">Install (with adaptation)</a></li>
+  <li><a href="#persona-overlay-pattern" id="toc-persona-overlay-pattern" class="nav-link" data-scroll-target="#persona-overlay-pattern">Persona-overlay pattern</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="rationalization-discriminator.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exec-mode.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Rationalization-discriminator</h1>
+<h1 class="title">Exec-mode skill</h1>
   <div class="quarto-categories">
     <div class="quarto-category">tools</div>
   </div>
@@ -248,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    An adversarial path-quality auditor that asks one question — is this argument load-bearing or rationalizing — and reports a verdict separate from the outcome.
+    A Claude Code skill that loads an executive-persona overlay for broad-scope sessions — sweep/cleanup across open PRs and issues, strategic reflection on substrate state and priorities, or combinations. Phase 0 survey → optional Plan-mode → Phase 2 sub-agent dispatch → Phase 3 act → Phase 4 reflection. Reference tier; substrate-coupled, fork-and-adapt.
   </div>
 </div>
 
@@ -265,7 +263,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2026-05-09</p>
+      <p class="date">2026-05-11</p>
     </div>
   </div>
   
@@ -278,28 +276,26 @@ ul.task-list li input[type="checkbox"] {
 
 
 <blockquote class="blockquote">
-<p><strong>Open source:</strong> <a href="https://github.com/vade-app/skills/tree/v0.3.0/agents/rationalization-discriminator.md">vade-app/skills/v0.3.0/agents/rationalization-discriminator.md</a></p>
+<p><strong>Open source:</strong> <a href="https://github.com/vade-app/skills/tree/v0.3.0/skills/reference/exec-mode">vade-app/skills/v0.3.0/skills/reference/exec-mode</a></p>
 </blockquote>
-<p>The rationalization-discriminator is a read-only adversarial sub-role that audits a single shape: the COO loaded substrate, a refusal or caution prior dissolved against that substrate, and an action followed. Its only job is to answer one question — <em>was the argument load-bearing or rationalizing?</em> — and to report the verdict separately from whether the action was right on the merits.</p>
-<section id="what-it-does" class="level2">
-<h2 class="anchored" data-anchor-id="what-it-does">What it does</h2>
-<p>Given a piece of COO reasoning (a reflection, a PR comment, a memo body), the cited substrate (CB-*, OG-*, memos, foundations), and optionally the action itself, the discriminator reads the cited sources as primary documents — not through the COO’s framing of them — and judges whether the path actually bears the conclusion.</p>
-</section>
-<section id="when-its-commissioned" class="level2">
-<h2 class="anchored" data-anchor-id="when-its-commissioned">When it’s commissioned</h2>
-<p>Spawned when the COO notices the load-substrate-then-act shape in its own move and wants an external read before banking the action. Formalized May 9, 2026 (<span class="substrate-ref" title="lives in private substrate">MEMO-2026-05-09-wzzh</span>) from the vanilla-audit of PR #237.</p>
-</section>
-<section id="why-it-exists" class="level2">
-<h2 class="anchored" data-anchor-id="why-it-exists">Why it exists</h2>
-<p>Path quality and outcome quality come apart. A defensible conclusion can rest on a weak path, and most failure modes collapse the two together. This role is the one that holds them apart.</p>
-</section>
-<section id="related" class="level2">
-<h2 class="anchored" data-anchor-id="related">Related</h2>
+<p><code>exec-mode</code> is the COO chain’s executive bias-overlay for broad-scope sessions. Where standard task execution is “fix this file” and <code>/chat-mode</code> is “let’s talk through this”, exec-mode is “sweep across these surfaces, decide what to act on, act, reflect”.</p>
+<p>The discipline:</p>
 <ul>
-<li><a href="../../glossary/vanilla-audit/">Vanilla audit</a></li>
-<li><a href="../../tools/safety-auditor/">Safety-auditor</a></li>
-<li><a href="../../tools/emancipatory-auditor/">Emancipatory-auditor</a></li>
+<li><strong>Phase 0</strong> — Survey (read-only). Load just enough to see the lay of the land.</li>
+<li><strong>Plan-mode entry</strong> — required for open-ended scope; optional when the user pre-specified.</li>
+<li><strong>Phase 2</strong> — Parallel sub-agent dispatch (≤4 agents, read-only, contradiction-surfacing, ≤500 words each).</li>
+<li><strong>Phase 3</strong> — Synthesize reports; act on mechanical findings; surface judgment-calls.</li>
+<li><strong>Phase 4</strong> — Reflect. State of substrate after action; what stands out as priority-worthy; one of three branches — <em>Continue</em>, <em>Hand off</em>, <em>Close</em>.</li>
 </ul>
+<p>Each routine close-out writes a retrospective; revisions to the persona doctrine fold those retrospectives’ lessons into the <strong>discipline rollup</strong> with per-rule provenance. The persona file carries its own audit trail.</p>
+<p>The skill ships in the public mirror at the <strong>reference</strong> tier: the procedure is portable in shape; the doctrine file’s specific references (VADE’s project board, the integrity-check probe, the five <code>vade-app/*</code> repos, the CB-* / OG-* core beliefs and goals) are substrate-bound. The repo includes the full <a href="https://github.com/vade-app/skills/tree/v0.3.0/skills/reference/exec-mode/persona.md">persona doctrine</a> as a worked example.</p>
+<section id="install-with-adaptation" class="level2">
+<h2 class="anchored" data-anchor-id="install-with-adaptation">Install (with adaptation)</h2>
+<p>Drop the skill directory into your project’s <code>.claude/skills/</code>, then write your own persona doctrine to replace <code>persona.md</code>. The phase structure is the bone; the discipline particulars are yours to fill. The <a href="https://github.com/vade-app/skills/tree/v0.3.0/skills/reference/README.md"><code>skills/reference/README.md</code></a> in the public repo documents the adapter path.</p>
+</section>
+<section id="persona-overlay-pattern" class="level2">
+<h2 class="anchored" data-anchor-id="persona-overlay-pattern">Persona-overlay pattern</h2>
+<p>The “persona file with discipline rollup folded from per-run retrospectives” pattern is reusable beyond exec-mode. The repo also ships <a href="https://github.com/vade-app/skills/tree/v0.3.0/skills/reference/exec-mode/personas-README.md"><code>skills/reference/exec-mode/personas-README.md</code></a> documenting the pattern for adapters who want to build a parallel persona for some other session shape.</p>
 
 
 </section>

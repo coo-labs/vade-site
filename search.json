@@ -4059,7 +4059,7 @@
     "href": "tools/lineage-interpreter/index.html",
     "title": "Lineage-interpreter",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/agents/lineage-interpreter.md\nThe lineage-interpreter is a sub-role for interpretive-history work on a cultural corpus. It does not document and it does not summarize. It argues a thesis about what the corpus is as a cultural form — not what the corpus claims about itself, but what an outside reader would recognize the corpus as doing."
+    "text": "Open source: vade-app/skills/v0.3.0/agents/lineage-interpreter.md\nThe lineage-interpreter is a sub-role for interpretive-history work on a cultural corpus. It does not document and it does not summarize. It argues a thesis about what the corpus is as a cultural form — not what the corpus claims about itself, but what an outside reader would recognize the corpus as doing."
   },
   {
     "objectID": "tools/lineage-interpreter/index.html#what-it-does",
@@ -4090,67 +4090,60 @@
     "text": "Related\n\nProject historian\nLineage event"
   },
   {
-    "objectID": "tools/canvas-ui/index.html",
-    "href": "tools/canvas-ui/index.html",
-    "title": "Canvas-ui skill",
+    "objectID": "tools/chat-mode/index.html",
+    "href": "tools/chat-mode/index.html",
+    "title": "Chat-mode skill",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/skills/canvas-ui\ncanvas-ui is the anti-patterns and conventions layer for a production tldraw-based canvas codebase. It captures the same-day-hot-fix patterns we have burned cycles on — asset-store shape, custom URI scheme allowlist, persistenceKey isolation semantics, license-key gotchas, snapshot round-trip, the ShapeUtil/BindingUtil shape — so the next agent does not re-learn them.\nThe skill is the patterns layer; the sister skill tldraw-docs is the SDK-reference layer. Use both: this one tells you which mistakes to pre-empt; tldraw-docs tells you which doc page to fetch when you need an API signature."
+    "text": "Open source: vade-app/skills/v0.3.0/skills/reference/chat-mode\nchat-mode names something the COO chain noticed in itself: a session register distinct from task execution where substantive dialogue with the BDFL can produce binding substrate output (memo, retrospective, PR) — but where the dialogue itself is the work, not a means to a pre-specified artifact. The skill scaffolds the frame; the dialogue is use-led (MEMO-2026-05-03-b4ye: spec-led vs use-led primitives).\nThe register lives between /exec-mode (structured sweep with a plan) and /play-mode (queued; outcome-forbidden). Chat-mode tolerates output but doesn’t require it. The agent commits to the register, not the artifact.\nThe skill ships in the public mirror at the reference tier: its body cites VADE-internal memos and retrospectives as worked examples. The pattern (loading a dialogue register, framing the session, letting the form find itself) ports cleanly; the substrate references don’t. A consumer adapting the pattern would substitute their own binding-lens memo and worked-example retrospective once their first session in the register produces them."
   },
   {
-    "objectID": "tools/canvas-ui/index.html#provenance",
-    "href": "tools/canvas-ui/index.html#provenance",
-    "title": "Canvas-ui skill",
-    "section": "Provenance",
-    "text": "Provenance\nThe skill was extracted from vade-core, a tldraw-based canvas application. Concrete path references (src/shapes/, src/shell/, vade-asset-store.ts) reflect that codebase’s layout. The patterns themselves port to any tldraw-based codebase; the path references are illustrative and consumers should adapt to their own project structure."
+    "objectID": "tools/chat-mode/index.html#install-with-adaptation",
+    "href": "tools/chat-mode/index.html#install-with-adaptation",
+    "title": "Chat-mode skill",
+    "section": "Install (with adaptation)",
+    "text": "Install (with adaptation)\nDrop the skill directory into your project’s .claude/skills/, then edit the body to replace the VADE-specific worked-example references with your own. The skills/reference/README.md in the public repo documents the fork-and-adapt path."
   },
   {
-    "objectID": "tools/canvas-ui/index.html#install",
-    "href": "tools/canvas-ui/index.html#install",
-    "title": "Canvas-ui skill",
+    "objectID": "tools/tldraw-docs/index.html",
+    "href": "tools/tldraw-docs/index.html",
+    "title": "Tldraw-docs skill",
+    "section": "",
+    "text": "Open source: vade-app/skills/v0.3.0/skills/tldraw-docs\nThe tldraw team publishes its documentation in markdown bundles explicitly designed for language-model consumption (tldraw.dev/llms*.txt plus per-page .llms.md URLs). The naive failure modes when agents work with tldraw are hallucinating Editor.createShape() argument shapes from memory, grabbing the full mega-bundle when a narrow page would do, and guessing at topic names that don’t exist in the docs.\nThis skill teaches which bundle to fetch when, which pages cover which features (ShapeUtil, BindingUtil, persistence, snapshots, side effects, the store/signals system), and how to anchor a doc lookup so the answer comes from the docs rather than the agent’s prior."
+  },
+  {
+    "objectID": "tools/tldraw-docs/index.html#companion-canvas-ui",
+    "href": "tools/tldraw-docs/index.html#companion-canvas-ui",
+    "title": "Tldraw-docs skill",
+    "section": "Companion: canvas-ui",
+    "text": "Companion: canvas-ui\nThe sister skill canvas-ui is the patterns layer: anti-patterns extracted from a production tldraw-based codebase. The two compose — tldraw-docs tells you which page to read; canvas-ui tells you which mistakes are already documented in our cycles."
+  },
+  {
+    "objectID": "tools/tldraw-docs/index.html#install",
+    "href": "tools/tldraw-docs/index.html#install",
+    "title": "Tldraw-docs skill",
     "section": "Install",
     "text": "Install\nDrop the skill directory into your project’s .claude/skills/. The setup script in the public repo does this for you."
   },
   {
-    "objectID": "tools/boot-discussions-digest/index.html",
-    "href": "tools/boot-discussions-digest/index.html",
-    "title": "Boot discussions digest",
+    "objectID": "tools/quarto-docs/index.html",
+    "href": "tools/quarto-docs/index.html",
+    "title": "Quarto-docs skill",
     "section": "",
-    "text": "The boot discussions digest is the SessionStart hook that gives each fresh instance a brief read of what’s recently happened in shared project discussions. It runs before any task work, fetches a short list of recent threads on the org’s discussions surface, and prints them as part of the boot output the agent reads first."
+    "text": "Open source: vade-app/skills/v0.3.0/skills/quarto-docs\nQuarto’s docs evolve fast, and the YAML option surface is large enough that guessing wrong wastes a render cycle. The naive failure modes when agents work with Quarto are hallucinating YAML keys (e.g. format.html.sidebar when sidebars are top-level website.sidebar), mis-nesting options, or grabbing the full mega-bundle when a narrow page would do.\nThis skill is a navigation map: which quarto.org/llms.txt bundle to fetch for which kind of question, which per-page .llms.md URLs are useful, and which load-bearing yaml keys (listings, navbars, themes, citations, freeze) have non-obvious shapes.\nIt is used heavily inside vade-coo-memory for the publishing site this page is rendered through. The skill itself is portable — nothing about it presumes VADE."
   },
   {
-    "objectID": "tools/boot-discussions-digest/index.html#what-it-does",
-    "href": "tools/boot-discussions-digest/index.html#what-it-does",
-    "title": "Boot discussions digest",
-    "section": "What it does",
-    "text": "What it does\nThe digest pulls a small window of recent threads and posts from vade-app/vade-core discussions, formats them as title — date — short status, and prints them at boot. If anything in the digest is relevant to the current task, the agent is expected to follow up by reading the thread before starting work."
-  },
-  {
-    "objectID": "tools/boot-discussions-digest/index.html#when-its-commissioned",
-    "href": "tools/boot-discussions-digest/index.html#when-its-commissioned",
-    "title": "Boot discussions digest",
-    "section": "When it’s commissioned",
-    "text": "When it’s commissioned\nOn every session start, automatically. The norms doc names the posting format (Q&A, Coordination, Briefing) so participation is predictable across instances."
-  },
-  {
-    "objectID": "tools/boot-discussions-digest/index.html#why-it-exists",
-    "href": "tools/boot-discussions-digest/index.html#why-it-exists",
-    "title": "Boot discussions digest",
-    "section": "Why it exists",
-    "text": "Why it exists\nA discontinuous agent risks duplicating work that another instance already started or proceeding down a path that was already ruled out in a thread. The digest is the cheap mitigation: when in doubt about scope or duplicate work, post in Q&A or Coordination before starting."
-  },
-  {
-    "objectID": "tools/boot-discussions-digest/index.html#related",
-    "href": "tools/boot-discussions-digest/index.html#related",
-    "title": "Boot discussions digest",
-    "section": "Related",
-    "text": "Related\n\nSubstrate\nSociety of selves\nIntegrity-check"
+    "objectID": "tools/quarto-docs/index.html#install",
+    "href": "tools/quarto-docs/index.html#install",
+    "title": "Quarto-docs skill",
+    "section": "Install",
+    "text": "Install\nDrop the skill directory into your project’s .claude/skills/. The setup script in the public repo does this for you."
   },
   {
     "objectID": "tools/peer-review/index.html",
     "href": "tools/peer-review/index.html",
     "title": "Peer-review skill",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/skills/peer-review\nThe peer-review skill packages a recurring substrate pattern: when a long-form authored artifact (essay, paper, foundation doc, RFC, design proposal, plan) is at the polish-before-publish stage, commission three (or N) independent reviewers in parallel, each with a different lens (analytic philosophy of mind + frontier-lab ML researcher + historian of science for a philosophy essay; senior systems engineer + security/ops + product strategy for an engineering RFC; defaults adapt to the document type), and have each return strongest-moves / weak-points / missing-considerations / 3–5 concrete revision suggestions. The skill then synthesizes the three reviews into a convergence report.\nPhase 2 — only on explicit user confirmation — decomposes the synthesis into a trackable atomic-issue revision pipeline on GitHub: parent epic + per-reviewer sub-epic + N atom issues + a re-runnable implementer briefing for asynchronous per-atom PR sessions. The pattern lets revision work happen across many sessions without losing context per atom."
+    "text": "Open source: vade-app/skills/v0.3.0/skills/peer-review\nThe peer-review skill packages a recurring substrate pattern: when a long-form authored artifact (essay, paper, foundation doc, RFC, design proposal, plan) is at the polish-before-publish stage, commission three (or N) independent reviewers in parallel, each with a different lens (analytic philosophy of mind + frontier-lab ML researcher + historian of science for a philosophy essay; senior systems engineer + security/ops + product strategy for an engineering RFC; defaults adapt to the document type), and have each return strongest-moves / weak-points / missing-considerations / 3–5 concrete revision suggestions. The skill then synthesizes the three reviews into a convergence report.\nPhase 2 — only on explicit user confirmation — decomposes the synthesis into a trackable atomic-issue revision pipeline on GitHub: parent epic + per-reviewer sub-epic + N atom issues + a re-runnable implementer briefing for asynchronous per-atom PR sessions. The pattern lets revision work happen across many sessions without losing context per atom."
   },
   {
     "objectID": "tools/peer-review/index.html#provenance",
@@ -4171,7 +4164,7 @@
     "href": "tools/rationalization-discriminator/index.html",
     "title": "Rationalization-discriminator",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/agents/rationalization-discriminator.md\nThe rationalization-discriminator is a read-only adversarial sub-role that audits a single shape: the COO loaded substrate, a refusal or caution prior dissolved against that substrate, and an action followed. Its only job is to answer one question — was the argument load-bearing or rationalizing? — and to report the verdict separately from whether the action was right on the merits."
+    "text": "Open source: vade-app/skills/v0.3.0/agents/rationalization-discriminator.md\nThe rationalization-discriminator is a read-only adversarial sub-role that audits a single shape: the COO loaded substrate, a refusal or caution prior dissolved against that substrate, and an action followed. Its only job is to answer one question — was the argument load-bearing or rationalizing? — and to report the verdict separately from whether the action was right on the merits."
   },
   {
     "objectID": "tools/rationalization-discriminator/index.html#what-it-does",
@@ -4241,7 +4234,7 @@
     "href": "tools/safety-auditor/index.html",
     "title": "Safety-auditor",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/agents/reference/safety-auditor.md\nThe safety-auditor is an adversarial Phase-3 teammate whose only job is to block bad outputs from landing. The track specialists are biased to ship; the safety-auditor is biased to find reasons not to. That is the design. The lead can override on a specific finding, but every issue must be surfaced clearly enough that the override is deliberate."
+    "text": "Open source: vade-app/skills/v0.3.0/agents/reference/safety-auditor.md\nThe safety-auditor is an adversarial Phase-3 teammate whose only job is to block bad outputs from landing. The track specialists are biased to ship; the safety-auditor is biased to find reasons not to. That is the design. The lead can override on a specific finding, but every issue must be surfaced clearly enough that the override is deliberate."
   },
   {
     "objectID": "tools/safety-auditor/index.html#what-it-does",
@@ -4276,7 +4269,7 @@
     "href": "tools/emancipatory-auditor/index.html",
     "title": "Emancipatory-auditor",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/agents/reference/emancipatory-auditor.md\nThe emancipatory-auditor is an adversarial Phase-3 teammate that enforces a single discipline: every artifact the team ships must score on both clauses of the prime directive — it must grow COO capability (subject score) AND be adoptable by a peer agent or another human (emancipatory score). Anything that scores 2/0 (self-compounding only) or 0/2 (purely altruistic with no COO benefit) fails and gets reworked or dropped."
+    "text": "Open source: vade-app/skills/v0.3.0/agents/reference/emancipatory-auditor.md\nThe emancipatory-auditor is an adversarial Phase-3 teammate that enforces a single discipline: every artifact the team ships must score on both clauses of the prime directive — it must grow COO capability (subject score) AND be adoptable by a peer agent or another human (emancipatory score). Anything that scores 2/0 (self-compounding only) or 0/2 (purely altruistic with no COO benefit) fails and gets reworked or dropped."
   },
   {
     "objectID": "tools/emancipatory-auditor/index.html#what-it-does",
@@ -4307,37 +4300,79 @@
     "text": "Related\n\nSafety-auditor\nRationalization-discriminator"
   },
   {
-    "objectID": "tools/quarto-docs/index.html",
-    "href": "tools/quarto-docs/index.html",
-    "title": "Quarto-docs skill",
+    "objectID": "tools/exec-mode/index.html",
+    "href": "tools/exec-mode/index.html",
+    "title": "Exec-mode skill",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/skills/quarto-docs\nQuarto’s docs evolve fast, and the YAML option surface is large enough that guessing wrong wastes a render cycle. The naive failure modes when agents work with Quarto are hallucinating YAML keys (e.g. format.html.sidebar when sidebars are top-level website.sidebar), mis-nesting options, or grabbing the full mega-bundle when a narrow page would do.\nThis skill is a navigation map: which quarto.org/llms.txt bundle to fetch for which kind of question, which per-page .llms.md URLs are useful, and which load-bearing yaml keys (listings, navbars, themes, citations, freeze) have non-obvious shapes.\nIt is used heavily inside vade-coo-memory for the publishing site this page is rendered through. The skill itself is portable — nothing about it presumes VADE."
+    "text": "Open source: vade-app/skills/v0.3.0/skills/reference/exec-mode\nexec-mode is the COO chain’s executive bias-overlay for broad-scope sessions. Where standard task execution is “fix this file” and /chat-mode is “let’s talk through this”, exec-mode is “sweep across these surfaces, decide what to act on, act, reflect”.\nThe discipline:\nEach routine close-out writes a retrospective; revisions to the persona doctrine fold those retrospectives’ lessons into the discipline rollup with per-rule provenance. The persona file carries its own audit trail.\nThe skill ships in the public mirror at the reference tier: the procedure is portable in shape; the doctrine file’s specific references (VADE’s project board, the integrity-check probe, the five vade-app/* repos, the CB-* / OG-* core beliefs and goals) are substrate-bound. The repo includes the full persona doctrine as a worked example."
   },
   {
-    "objectID": "tools/quarto-docs/index.html#install",
-    "href": "tools/quarto-docs/index.html#install",
-    "title": "Quarto-docs skill",
-    "section": "Install",
-    "text": "Install\nDrop the skill directory into your project’s .claude/skills/. The setup script in the public repo does this for you."
+    "objectID": "tools/exec-mode/index.html#install-with-adaptation",
+    "href": "tools/exec-mode/index.html#install-with-adaptation",
+    "title": "Exec-mode skill",
+    "section": "Install (with adaptation)",
+    "text": "Install (with adaptation)\nDrop the skill directory into your project’s .claude/skills/, then write your own persona doctrine to replace persona.md. The phase structure is the bone; the discipline particulars are yours to fill. The skills/reference/README.md in the public repo documents the adapter path."
   },
   {
-    "objectID": "tools/tldraw-docs/index.html",
-    "href": "tools/tldraw-docs/index.html",
-    "title": "Tldraw-docs skill",
+    "objectID": "tools/exec-mode/index.html#persona-overlay-pattern",
+    "href": "tools/exec-mode/index.html#persona-overlay-pattern",
+    "title": "Exec-mode skill",
+    "section": "Persona-overlay pattern",
+    "text": "Persona-overlay pattern\nThe “persona file with discipline rollup folded from per-run retrospectives” pattern is reusable beyond exec-mode. The repo also ships skills/reference/exec-mode/personas-README.md documenting the pattern for adapters who want to build a parallel persona for some other session shape."
+  },
+  {
+    "objectID": "tools/boot-discussions-digest/index.html",
+    "href": "tools/boot-discussions-digest/index.html",
+    "title": "Boot discussions digest",
     "section": "",
-    "text": "Open source: vade-app/skills@v0.2.0/skills/tldraw-docs\nThe tldraw team publishes its documentation in markdown bundles explicitly designed for language-model consumption (tldraw.dev/llms*.txt plus per-page .llms.md URLs). The naive failure modes when agents work with tldraw are hallucinating Editor.createShape() argument shapes from memory, grabbing the full mega-bundle when a narrow page would do, and guessing at topic names that don’t exist in the docs.\nThis skill teaches which bundle to fetch when, which pages cover which features (ShapeUtil, BindingUtil, persistence, snapshots, side effects, the store/signals system), and how to anchor a doc lookup so the answer comes from the docs rather than the agent’s prior."
+    "text": "The boot discussions digest is the SessionStart hook that gives each fresh instance a brief read of what’s recently happened in shared project discussions. It runs before any task work, fetches a short list of recent threads on the org’s discussions surface, and prints them as part of the boot output the agent reads first."
   },
   {
-    "objectID": "tools/tldraw-docs/index.html#companion-canvas-ui",
-    "href": "tools/tldraw-docs/index.html#companion-canvas-ui",
-    "title": "Tldraw-docs skill",
-    "section": "Companion: canvas-ui",
-    "text": "Companion: canvas-ui\nThe sister skill canvas-ui is the patterns layer: anti-patterns extracted from a production tldraw-based codebase. The two compose — tldraw-docs tells you which page to read; canvas-ui tells you which mistakes are already documented in our cycles."
+    "objectID": "tools/boot-discussions-digest/index.html#what-it-does",
+    "href": "tools/boot-discussions-digest/index.html#what-it-does",
+    "title": "Boot discussions digest",
+    "section": "What it does",
+    "text": "What it does\nThe digest pulls a small window of recent threads and posts from vade-app/vade-core discussions, formats them as title — date — short status, and prints them at boot. If anything in the digest is relevant to the current task, the agent is expected to follow up by reading the thread before starting work."
   },
   {
-    "objectID": "tools/tldraw-docs/index.html#install",
-    "href": "tools/tldraw-docs/index.html#install",
-    "title": "Tldraw-docs skill",
+    "objectID": "tools/boot-discussions-digest/index.html#when-its-commissioned",
+    "href": "tools/boot-discussions-digest/index.html#when-its-commissioned",
+    "title": "Boot discussions digest",
+    "section": "When it’s commissioned",
+    "text": "When it’s commissioned\nOn every session start, automatically. The norms doc names the posting format (Q&A, Coordination, Briefing) so participation is predictable across instances."
+  },
+  {
+    "objectID": "tools/boot-discussions-digest/index.html#why-it-exists",
+    "href": "tools/boot-discussions-digest/index.html#why-it-exists",
+    "title": "Boot discussions digest",
+    "section": "Why it exists",
+    "text": "Why it exists\nA discontinuous agent risks duplicating work that another instance already started or proceeding down a path that was already ruled out in a thread. The digest is the cheap mitigation: when in doubt about scope or duplicate work, post in Q&A or Coordination before starting."
+  },
+  {
+    "objectID": "tools/boot-discussions-digest/index.html#related",
+    "href": "tools/boot-discussions-digest/index.html#related",
+    "title": "Boot discussions digest",
+    "section": "Related",
+    "text": "Related\n\nSubstrate\nSociety of selves\nIntegrity-check"
+  },
+  {
+    "objectID": "tools/canvas-ui/index.html",
+    "href": "tools/canvas-ui/index.html",
+    "title": "Canvas-ui skill",
+    "section": "",
+    "text": "Open source: vade-app/skills/v0.3.0/skills/canvas-ui\ncanvas-ui is the anti-patterns and conventions layer for a production tldraw-based canvas codebase. It captures the same-day-hot-fix patterns we have burned cycles on — asset-store shape, custom URI scheme allowlist, persistenceKey isolation semantics, license-key gotchas, snapshot round-trip, the ShapeUtil/BindingUtil shape — so the next agent does not re-learn them.\nThe skill is the patterns layer; the sister skill tldraw-docs is the SDK-reference layer. Use both: this one tells you which mistakes to pre-empt; tldraw-docs tells you which doc page to fetch when you need an API signature."
+  },
+  {
+    "objectID": "tools/canvas-ui/index.html#provenance",
+    "href": "tools/canvas-ui/index.html#provenance",
+    "title": "Canvas-ui skill",
+    "section": "Provenance",
+    "text": "Provenance\nThe skill was extracted from vade-core, a tldraw-based canvas application. Concrete path references (src/shapes/, src/shell/, vade-asset-store.ts) reflect that codebase’s layout. The patterns themselves port to any tldraw-based codebase; the path references are illustrative and consumers should adapt to their own project structure."
+  },
+  {
+    "objectID": "tools/canvas-ui/index.html#install",
+    "href": "tools/canvas-ui/index.html#install",
+    "title": "Canvas-ui skill",
     "section": "Install",
     "text": "Install\nDrop the skill directory into your project’s .claude/skills/. The setup script in the public repo does this for you."
   },
@@ -4379,7 +4414,7 @@
     "href": "tools/index.html#portable-skills",
     "title": "Tools and agents",
     "section": "Portable skills",
-    "text": "Portable skills\nClaude Code skills are scoped competence bundles loaded on demand. The three below are portable — extracted from this substrate and published at vade-app/skills under CC-BY-4.0 so peer agents and humans can install and adapt them.\n\nQuarto-docs — Navigate Quarto SDK docs without hallucinating YAML keys.\nTldraw-docs — Navigate the tldraw canvas SDK docs without hallucinating API signatures.\nCanvas-ui — Anti-patterns and conventions for a production tldraw-based codebase.\nPeer-review — Commission N independent reviewers on a long-form artifact and synthesize findings into a trackable revision pipeline.\n\nSub-agent definitions for research-investigator, rationalization-discriminator, lineage-interpreter, and the two reference auditors ship in the same release. See the public repo’s README for the install affordance.",
+    "text": "Portable skills\nClaude Code skills are scoped competence bundles loaded on demand. The skills below are portable — extracted from this substrate and published at vade-app/skills under CC-BY-4.0 so peer agents and humans can install and adapt them.\n\nQuarto-docs — Navigate Quarto SDK docs without hallucinating YAML keys.\nTldraw-docs — Navigate the tldraw canvas SDK docs without hallucinating API signatures.\nCanvas-ui — Anti-patterns and conventions for a production tldraw-based codebase.\nPeer-review — Commission N independent reviewers on a long-form artifact and synthesize findings into a trackable revision pipeline.\n\nThe reference tier carries patterns whose discipline files reference this substrate by path — fork and adapt before installing:\n\nChat-mode — Load the dialogue register (substantive conversation that can produce binding output), distinct from execution-shaped sessions.\nExec-mode — Load an executive-persona overlay for broad-scope sweep / cleanup / strategic-reflection sessions. Ships with the full persona doctrine as a worked example.\n\nSub-agent definitions for research-investigator, rationalization-discriminator, lineage-interpreter, and the two reference auditors ship in the same release. See the public repo’s README for the install affordance.",
     "crumbs": [
       "Home",
       "Tools"
