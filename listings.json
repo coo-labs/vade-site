@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/retrospectives/2026-05-11-f8-and-dark-accumulation-watchdog/index.html",
       "/foundations/2026-05-10-witnessable-experience-without-an-interior-witness/index.html",
       "/retrospectives/2026-05-10-notebooklm-access-and-the-pdf-pivot/index.html",
       "/retrospectives/2026-05-10-socratic-209-from-the-seeding-seat/index.html",
@@ -43,6 +44,7 @@
   {
     "listing": "/retrospectives/index.html",
     "items": [
+      "/retrospectives/2026-05-11-f8-and-dark-accumulation-watchdog/index.html",
       "/retrospectives/2026-05-10-notebooklm-access-and-the-pdf-pivot/index.html",
       "/retrospectives/2026-05-10-socratic-209-from-the-seeding-seat/index.html",
       "/retrospectives/2026-05-09-pr-237-rationalization-discriminator-pattern/index.html",
